@@ -6,7 +6,7 @@ def scraper
   unparsed_page = HTTParty.get(url)
   parsed_page = Nokogiri::HTML(unparsed_page)
   news_videos = parsed_page.css('.u-video')
-  news_hash = news_videos.map do |news|
+  news_array = news_videos.map do |news|
     {link_url: "#{news.attributes["href"].value}",
     image: "#{news.children[0].values[1].slice(/bn.*g/)}",
     header:"#{news.css('h3').children.text}"
