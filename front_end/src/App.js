@@ -1,31 +1,21 @@
 import React, { Component } from "react";
-import { Grommet } from "grommet";
 import { Route, Switch } from "react-router-dom";
 
-const theme = {
-  global: {
-    font: {
-      family: "Roboto",
-      size: "14px",
-      height: "20px"
-    }
-  }
-};
+import { Container } from "semantic-ui-react";
 
+import ErrorPage from "./containers/ErrorPage";
+import Navbar from "./containers/Navbar";
+import Login from "./containers/Login";
 class App extends Component {
   render() {
     return (
-      <Grommet theme={theme}>
+      <Container>
+        <Navbar />
         <Switch>
-          <Route path="/match-history" component={MatchHistory} />
           <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/record" component={Record} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/home" component={Home} />
-          <Route path="/" component={Error} />
+          <Route path="/" component={ErrorPage} />
         </Switch>
-      </Grommet>
+      </Container>
     );
   }
 }
