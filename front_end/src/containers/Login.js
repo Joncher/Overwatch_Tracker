@@ -11,13 +11,21 @@ import {
   Form,
   Message
 } from "semantic-ui-react";
-import { connect } from "react-redux";
+import logo from "../images/Login_Signup/logo.jpg";
 
 class Login extends Component {
   state = { active: true, username: "", password: "" };
 
-  handleHide = () => {
-    window.history.back();
+  handleChange = (event, { name, value }) => {
+    this.setState({ [name]: value });
+  };
+
+  handleSubmit = () => {
+    this.props.handleLogin(this.state);
+    this.setState({
+      username: "",
+      password: ""
+    });
   };
 
   render() {
@@ -25,7 +33,7 @@ class Login extends Component {
 
     return (
       <div>
-        <Dimmer onClickOutside={this.handleHide} active>
+        <Dimmer active>
           <div className="login-form">
             <Grid
               textAlign="center"
@@ -41,8 +49,7 @@ class Login extends Component {
                     textAlign="center"
                     className="head"
                   >
-                    <Image src="https://i.etsystatic.com/10773018/r/il/900b92/1131045143/il_794xN.1131045143_oef2.jpg" />{" "}
-                    LOG IN TO OVERTRACK
+                    <Image src={logo} /> LOG IN TO OVERTRACK
                   </Header>
                   <Form size="large">
                     <Segment stacked>
@@ -90,4 +97,4 @@ class Login extends Component {
     );
   }
 }
-export default connect()(Login);
+export default Login;

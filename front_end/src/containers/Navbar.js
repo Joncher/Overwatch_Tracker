@@ -45,7 +45,14 @@ class Navbar extends Component {
             <Link to="/login">
               <Menu.Item name="login" />
             </Link>
-            <Menu.Item name="logout" />
+            <Link to="/login">
+              <Menu.Item
+                name="logout"
+                onClick={e => {
+                  localStorage.clear();
+                }}
+              />
+            </Link>
           </Menu.Menu>
         </Menu>
       </div>

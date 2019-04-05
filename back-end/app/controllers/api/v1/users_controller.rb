@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
 
   private
   def user_params
-    params.permit(:username, :password, :password_confirmation, :rank)
+    params.permit(:username, :password, :password_confirmation, :ranking)
   end
 
   def find_user
