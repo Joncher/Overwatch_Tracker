@@ -1,21 +1,39 @@
-import React from "react";
-import { Button, Checkbox, Form } from "semantic-ui-react";
+import React, { Component } from "react";
+import "../App.css";
+import { Button, Checkbox, Form, Dimmer, Grid } from "semantic-ui-react";
 
-const Record = () => (
-  <Form>
-    <Form.Field>
-      <label>First Name</label>
-      <input placeholder="First Name" />
-    </Form.Field>
-    <Form.Field>
-      <label>Last Name</label>
-      <input placeholder="Last Name" />
-    </Form.Field>
-    <Form.Field>
-      <Checkbox label="I agree to the Terms and Conditions" />
-    </Form.Field>
-    <Button type="submit">Submit</Button>
-  </Form>
-);
+const options = {
+  result: [
+    { text: "", value: "" },
+    { text: "Won", value: "won" },
+    { text: "Loss", value: "loss" },
+    { text: "Draw", value: "draw" },
+    { text: "Leave/Disconnect", value: "leave" }
+  ]
+};
+
+class Record extends Component {
+  render() {
+    return (
+      <Grid.Column className="center">
+        <Form>
+          <Form.Select
+            fluid
+            label="Result"
+            options={options.result}
+            placeholder=""
+          />
+          <Form.Input
+            fluid
+            type="number"
+            label="Current Ranking"
+            placeholder="Current Ranking"
+          />
+          <Button type="submit">Submit</Button>
+        </Form>
+      </Grid.Column>
+    );
+  }
+}
 
 export default Record;
