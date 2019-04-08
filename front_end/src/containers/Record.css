@@ -1,0 +1,8 @@
+.centered {
+  margin: auto;
+  width: 25%;
+  padding: 10;
+}
+.hidden {
+  visibility: hidden;
+}
