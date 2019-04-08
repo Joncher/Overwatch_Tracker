@@ -14,32 +14,16 @@ class Navbar extends Component {
       <div>
         <Menu pointing secondary>
           <Link to="/home">
-            <Menu.Item
-              name="home"
-              active={activeItem === "home"}
-              onClick={this.handleItemClick}
-            />
+            <Menu.Item name="home" active={activeItem === "home"} />
           </Link>
           <Link to="/profile">
-            <Menu.Item
-              name="profile"
-              active={activeItem === "profile"}
-              onClick={this.handleItemClick}
-            />
+            <Menu.Item name="profile" active={activeItem === "profile"} />
           </Link>
           <Link to="/record">
-            <Menu.Item
-              name="record"
-              active={activeItem === "record"}
-              onClick={this.handleItemClick}
-            />
+            <Menu.Item name="record" active={activeItem === "record"} />
           </Link>
           <Link to="/history">
-            <Menu.Item
-              name="history"
-              active={activeItem === "history"}
-              onClick={this.handleItemClick}
-            />
+            <Menu.Item name="history" active={activeItem === "history"} />
           </Link>
           <Menu.Menu position="right">
             <Link to="/login">
