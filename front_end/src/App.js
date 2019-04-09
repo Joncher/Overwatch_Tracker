@@ -9,6 +9,7 @@ import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import Home from "./containers/Home";
 import Record from "./containers/Record";
+import MatchHistory from "./containers/MatchHistory";
 class App extends Component {
   render() {
     return (
@@ -18,6 +19,7 @@ class App extends Component {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/record" component={Record} />
+          <Route path="/history" component={MatchHistory} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
         </Switch>

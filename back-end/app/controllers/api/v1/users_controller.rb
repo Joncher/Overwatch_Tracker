@@ -15,14 +15,23 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+
+    @games = @user.games
+    render json: @games
+  end
+
   private
   def user_params
     params.permit(:username, :password, :password_confirmation, :ranking)
   end
 
-  def find_user
-    @user = User.find(params[:id])
+  def user_games_params
+
   end
+
+
 
 
 end

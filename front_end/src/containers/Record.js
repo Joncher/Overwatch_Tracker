@@ -12,16 +12,29 @@ class Record extends Component {
     party_size: 1,
     map: "",
     details: "",
-    user_id: 1
+    user_id: localStorage.userId
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
   handleSubmit = () => {
-    console.log(this.state);
+    fetch("http://localhost:3001/api/v1/games", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(r => r.json())
+      .then(r => {
+        console.log(r);
+      });
   };
 
   render() {
+    console.log(this.state);
     return (
       <Grid.Column className="centered">
         <Form>

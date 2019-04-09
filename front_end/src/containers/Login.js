@@ -14,23 +14,40 @@ import {
 import logo from "../images/Login_Signup/logo.jpg";
 
 class Login extends Component {
-  state = { active: true, username: "", password: "" };
+  state = { username: "", password: "" };
 
   handleChange = (event, { name, value }) => {
     this.setState({ [name]: value });
+    console.log(this.state);
   };
 
   handleSubmit = () => {
-    this.props.handleLogin(this.state);
-    this.setState({
-      username: "",
-      password: ""
-    });
+    fetch("http://localhost:3001/api/v1/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(r => r.json())
+      .then(r => {
+        if (r.jwt) {
+          localStorage.token = r.jwt;
+          localStorage.userId = r.user.id;
+          localStorage.username = r.user.username;
+          this.setState({
+            username: "",
+            password: ""
+          });
+          window.location.replace("http://localhost:3000/home");
+        } else {
+          window.alert(r.error);
+        }
+      });
   };
 
   render() {
-    const { active } = this.state;
-
     return (
       <div>
         <Dimmer active>

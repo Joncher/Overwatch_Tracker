@@ -42,9 +42,11 @@ class Signup extends Component {
       .then(r => r.json())
       .then(r => {
         if (r.error === "failed to create user") {
-          window.location.href = "http://localhost:3000/signup";
+          window.alert(r.error);
         } else {
           localStorage.token = r.jwt;
+          localStorage.userId = r.user.id;
+          localStorage.username = r.user.username;
           window.location.href = "http://localhost:3000/home";
         }
       });

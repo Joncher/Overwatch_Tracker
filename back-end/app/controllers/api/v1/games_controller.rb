@@ -20,4 +20,6 @@ class Api::V1::GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+
+
 end
