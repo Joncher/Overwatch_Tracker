@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Container } from "semantic-ui-react";
+import { Card, Container, Grid } from "semantic-ui-react";
 import GameCard from "../components/GameCard";
 
 const arrayOfCards = [];
@@ -20,20 +20,16 @@ class MatchHistory extends Component {
       }
     )
       .then(r => r.json())
-      .then(r =>
-        r.map(game => {
-          return <GameCard key={game.id} info={game} />;
-        })
-      );
+      .then(r => r.map(game => <GameCard key={game.id} info={game} />))
+      .then(r => this.setState({ array: r }));
   }
-  componentDidUpdate() {
-    this.setState({
-      array: arrayOfCards
-    });
-  }
+
   render() {
-    console.log(arrayOfCards);
-    return <Card.Group>{this.state.array}</Card.Group>;
+    return (
+      <Grid.Column className="gamecards main">
+        <Card.Group fluid>{this.state.array}</Card.Group>
+      </Grid.Column>
+    );
   }
 }
 export default MatchHistory;

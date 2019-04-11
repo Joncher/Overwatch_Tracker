@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Checkbox, Form, Dimmer, Grid } from "semantic-ui-react";
 import options from "../public/options.js";
-import "./Record.css";
+import "./App.css";
 
 class Record extends Component {
   state = {
@@ -36,7 +36,7 @@ class Record extends Component {
   render() {
     console.log(this.state);
     return (
-      <Grid.Column className="centered">
+      <Grid.Column className="centered main">
         <Form>
           <Form.Select
             fluid

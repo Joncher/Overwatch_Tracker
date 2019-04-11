@@ -1,5 +1,71 @@
-.center {
+.centered {
   margin: auto;
   width: 25%;
   padding: 10;
+}
+.hidden {
+  visibility: hidden;
+}
+
+.gamecards {
+  margin: auto;
+  position: relative;
+  max-width: 60%;
+  min-width: 1000px;
+  padding: 10;
+}
+
+.show {
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  background-color: #4a4c4e !important;
+}
+
+.portrait {
+  width: 90%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border: double;
+  background-color: #4a4c4e !important;
+}
+.image {
+  margin: 0 !important;
+}
+.won {
+  background-color: lightgreen !important;
+  opacity: 0.9;
+}
+
+.loss {
+  background-color: #ff6464 !important;
+  opacity: 0.9;
+}
+
+.map {
+  max-width: 100% !important ;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border: double;
+}
+h3 {
+  color: white !important;
+  border: double;
+  background-color: #4a4c4e !important;
+}
+
+body {
+  background: url("../images/background/crystal-candy-bg-top-e64823cff8 (1).jpg"),
+    url("../images/background/crystal-candy-bg-bottom-00cdaf6844.jpg");
+  background-size: cover, cover;
+  background-repeat: repeat-y;
+}
+
+.main {
+  width: 80%;
+  padding: 3em;
+}
+
+.nopadding {
+  padding: 1px !important;
 }

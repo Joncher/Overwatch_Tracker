@@ -1,6 +1,6 @@
 const options = {
   result: [
-    { text: "", value: "", key: "blank" },
+    { text: "", value: "None", key: "blank" },
     { text: "Won", value: "won", key: "Won" },
     { text: "Loss", value: "loss", key: "Loss" },
     { text: "Draw", value: "draw", key: "Draw" },
@@ -14,13 +14,13 @@ const options = {
       value: "",
       key: "B1"
     },
-    { text: "D.Va", value: "dva", key: "D.Va" },
-    { text: "Orisa", value: "orisa", key: "Orisa" },
-    { text: "Reinhardt", value: "reinhardt", key: "Reinhardt" },
-    { text: "Roadhog", value: "roadhog", key: "Roadhog" },
-    { text: "Winston", value: "winston", key: "Winston" },
-    { text: "Wrecking Ball", value: "wrecking_ball", key: "Wrecking Ball" },
-    { text: "Zarya", value: "zarya", key: "Zarya" },
+    { text: "D.Va", value: "Dva", key: "D.Va" },
+    { text: "Orisa", value: "Orisa", key: "Orisa" },
+    { text: "Reinhardt", value: "Reinhardt", key: "Reinhardt" },
+    { text: "Roadhog", value: "Roadhog", key: "Roadhog" },
+    { text: "Winston", value: "Winston", key: "Winston" },
+    { text: "Wrecking Ball", value: "Wrecking Ball", key: "Wrecking Ball" },
+    { text: "Zarya", value: "Zarya", key: "Zarya" },
     {
       text:
         "______________________________________________________________________________________________________________________________",
@@ -34,22 +34,22 @@ const options = {
       value: "",
       key: "B3"
     },
-    { text: "Ashe", value: "ashe", key: "Ashe" },
-    { text: "Bastion", value: "bastion", key: "Bastion" },
-    { text: "Doomfist", value: "doomfist", key: "Doomfist" },
-    { text: "Genji", value: "genji", key: "Genji" },
-    { text: "Hanzo", value: "hanzo", key: "Hanzo" },
-    { text: "Junkrat", value: "junkrat", key: "Junkrat" },
-    { text: "McCree", value: "mccree", key: "McCree" },
-    { text: "Mei", value: "mei", key: "Mei" },
-    { text: "Pharah", value: "pharah", key: "Pharah" },
-    { text: "Reaper", value: "reaper", key: "Reaper" },
-    { text: "Soldier: 76", value: "soldier_76", key: "Soldier: 76" },
-    { text: "Sombra", value: "sombra", key: "Sombra" },
-    { text: "Symmetra", value: "symmetra", key: "Symmetra" },
-    { text: "Torbjörn", value: "torbjorn", key: "Torbjörn" },
-    { text: "Tracer", value: "tracer", key: "Tracer" },
-    { text: "Widowmaker", value: "widowmaker", key: "Widowmaker" },
+    { text: "Ashe", value: "Ashe", key: "Ashe" },
+    { text: "Bastion", value: "Bastion", key: "Bastion" },
+    { text: "Doomfist", value: "Doomfist", key: "Doomfist" },
+    { text: "Genji", value: "Genji", key: "Genji" },
+    { text: "Hanzo", value: "Hanzo", key: "Hanzo" },
+    { text: "Junkrat", value: "Junkrat", key: "Junkrat" },
+    { text: "McCree", value: "Mccree", key: "McCree" },
+    { text: "Mei", value: "Mei", key: "Mei" },
+    { text: "Pharah", value: "Pharah", key: "Pharah" },
+    { text: "Reaper", value: "Reaper", key: "Reaper" },
+    { text: "Soldier: 76", value: "Soldier:76", key: "Soldier: 76" },
+    { text: "Sombra", value: "Sombra", key: "Sombra" },
+    { text: "Symmetra", value: "Symmetra", key: "Symmetra" },
+    { text: "Torbjörn", value: "Torbjorn", key: "Torbjörn" },
+    { text: "Tracer", value: "Tracer", key: "Tracer" },
+    { text: "Widowmaker", value: "Widowmaker", key: "Widowmaker" },
     {
       text:
         "______________________________________________________________________________________________________________________________",
@@ -63,13 +63,13 @@ const options = {
       value: "",
       key: "B5"
     },
-    { text: "Ana", value: "ana", key: "Ana" },
-    { text: "Baptiste", value: "baptiste", key: "Baptiste" },
-    { text: "Brigitte", value: "brigitte", key: "Brigitte" },
-    { text: "Lúcio", value: "lucio", key: "Lúcio" },
-    { text: "Mercy", value: "mercy", key: "Mercy" },
-    { text: "Moira", value: "moira", key: "Moira" },
-    { text: "Zenyatta", value: "zenyatta", key: "Zenyatta" }
+    { text: "Ana", value: "Ana", key: "Ana" },
+    { text: "Baptiste", value: "Baptiste", key: "Baptiste" },
+    { text: "Brigitte", value: "Brigitte", key: "Brigitte" },
+    { text: "Lúcio", value: "Lucio", key: "Lúcio" },
+    { text: "Mercy", value: "Mercy", key: "Mercy" },
+    { text: "Moira", value: "Moira", key: "Moira" },
+    { text: "Zenyatta", value: "Zenyatta", key: "Zenyatta" }
   ],
   party: [
     { text: "", value: "" },
@@ -89,21 +89,21 @@ const options = {
       key: "B1"
     },
 
-    { text: "Hanamura", value: "hanamura", key: "Hanamura" },
+    { text: "Hanamura", value: "Hanamura", key: "Hanamura" },
     {
       text: "Horizon Lunar Colony",
-      value: "horizon",
+      value: "Horizon Lunar Colony",
       key: "Horizon Lunar Colony"
     },
-    { text: "Paris", value: "paris", key: "Paris" },
+    { text: "Paris", value: "Paris", key: "Paris" },
     {
       text: "Temple of Anubis",
-      value: "temple_of_anubis",
+      value: "Temple of Anubis",
       key: "Temple of Anubis"
     },
     {
       text: "Volskaya Industries",
-      value: "volskaya",
+      value: "Volskaya Industries",
       key: "Volskaya Industries"
     },
 
@@ -120,21 +120,21 @@ const options = {
       value: "",
       key: "B3"
     },
-    { text: "Blizzard World", value: "blizzard_world", key: "Blizzard World" },
-    { text: "Eichenwalde", value: "eichenwalde", key: "Eichenwalde" },
-    { text: "Hollywood", value: "hollywood", key: "Hollywood" },
-    { text: "King's Row", value: "king's_row", key: "King's Row" },
-    { text: "Numbani", value: "numbani", key: "Numbani" },
+    { text: "Blizzard World", value: "Blizzard World", key: "Blizzard World" },
+    { text: "Eichenwalde", value: "Eichenwalde", key: "Eichenwalde" },
+    { text: "Hollywood", value: "Hollywood", key: "Hollywood" },
+    { text: "King's Row", value: "Kings Row", key: "King's Row" },
+    { text: "Numbani", value: "Numbani", key: "Numbani" },
 
     { text: "Escort Maps", value: "", key: "Escort Maps" },
 
-    { text: "Dorado", value: "dorado", key: "Dorado" },
-    { text: "Junkertown", value: "junkertown", key: "Junkertown" },
-    { text: "Rialto", value: "rialto", key: "Rialto" },
-    { text: "Route 66", value: "route_66", key: "Route 66" },
+    { text: "Dorado", value: "Dorado", key: "Dorado" },
+    { text: "Junkertown", value: "Junkertown", key: "Junkertown" },
+    { text: "Rialto", value: "Rialto", key: "Rialto" },
+    { text: "Route 66", value: "Route 66", key: "Route 66" },
     {
       text: "Watchpoint: Gibraltar",
-      value: "gibraltar",
+      value: "Gibraltar",
       key: "Watchpoint: Gibraltar"
     },
     {
@@ -150,11 +150,11 @@ const options = {
       value: "",
       key: "B5"
     },
-    { text: "Busan", value: "busan", key: "Busan" },
-    { text: "Ilios", value: "ilios", key: "Ilios" },
-    { text: "Lijiang Tower", value: "lijiang Tower", key: "Lijiang Tower" },
-    { text: "Nepal", value: "nepal", key: "Nepal" },
-    { text: "Oasis", value: "oasis", key: "Oasis" }
+    { text: "Busan", value: "Busan", key: "Busan" },
+    { text: "Ilios", value: "Ilios", key: "Ilios" },
+    { text: "Lijiang Tower", value: "Lijiang Tower", key: "Lijiang Tower" },
+    { text: "Nepal", value: "Nepal", key: "Nepal" },
+    { text: "Oasis", value: "Oasis", key: "Oasis" }
   ]
 };
 

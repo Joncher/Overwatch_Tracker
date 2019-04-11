@@ -2,7 +2,6 @@ class Api::V1::GamesController < ApplicationController
 
   def create
     @game = Game.create(game_param)
-    byebug
     if @game.valid?
       render json: { game: GameSerializer.new(@game) }, status: :created
     else
@@ -13,7 +12,7 @@ class Api::V1::GamesController < ApplicationController
 
   private
   def game_param
-    params.permit(:result, :new_ranking, :hero_one, :hero_two, :party_size, :map, :details, :user_id)
+    params.permit(:result, :new_ranking, :hero_one, :hero_two, :party_size, :map, :details, :user_id, :time)
   end
 
   def find_game

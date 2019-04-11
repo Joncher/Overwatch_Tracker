@@ -18,7 +18,7 @@ import logo from "../images/Login_Signup/logo.jpg";
 class Home extends Component {
   render() {
     return (
-      <Container fluid>
+      <Container fluid className="main">
         <Grid columns={2} verticalAlign="top">
           <Grid.Row verticalAlign="top" />
           <Grid.Column>

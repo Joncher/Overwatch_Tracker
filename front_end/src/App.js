@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { Container, Grid, Divider } from "semantic-ui-react";
+import { Container, Grid, Divider, Image } from "semantic-ui-react";
 
 import ErrorPage from "./containers/ErrorPage";
 import Navbar from "./containers/Navbar";

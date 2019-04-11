@@ -17,7 +17,6 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
     @games = @user.games
     render json: @games
   end
