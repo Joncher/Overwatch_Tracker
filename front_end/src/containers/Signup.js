@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import {
   Button,
   Dimmer,
@@ -8,9 +7,7 @@ import {
   Image,
   Segment,
   Grid,
-  Form,
-  Message,
-  Container
+  Form
 } from "semantic-ui-react";
 import logo from "../images/Login_Signup/logo.jpg";
 
@@ -69,8 +66,13 @@ class Signup extends Component {
             >
               <Grid.Row verticalAlign="top">
                 <Grid.Column style={{ maxWidth: 525 }}>
-                  <Button icon color="grey" onClick={this.handleBackToLogin}>
-                    <Icon name="x" />
+                  <Button
+                    className="back"
+                    icon
+                    color="grey"
+                    onClick={this.handleBackToLogin}
+                  >
+                    <Icon name="left arrow" />
                   </Button>
 
                   <Header
@@ -84,7 +86,7 @@ class Signup extends Component {
                   <Form size="large">
                     <Segment stacked>
                       <Form.Input
-                        fluid
+                        fluid={true}
                         icon="user"
                         iconPosition="left"
                         value={this.state.username}
@@ -93,7 +95,7 @@ class Signup extends Component {
                         onChange={this.handleChange}
                       />
                       <Form.Input
-                        fluid
+                        fluid={true}
                         icon="lock"
                         value={this.state.password}
                         iconPosition="left"
@@ -103,7 +105,7 @@ class Signup extends Component {
                         onChange={this.handleChange}
                       />
                       <Form.Input
-                        fluid
+                        fluid={true}
                         value={this.state.ranking}
                         placeholder="Current Rank ex: 1500"
                         type="number"
@@ -113,7 +115,7 @@ class Signup extends Component {
 
                       <Button
                         color="yellow"
-                        fluid
+                        fluid={true}
                         size="large"
                         onClick={this.handleSubmit}
                       >

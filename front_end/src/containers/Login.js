@@ -42,7 +42,7 @@ class Login extends Component {
           });
           window.location.replace("http://localhost:3000/home");
         } else {
-          window.alert(r.error);
+          window.alert("Incorrect Username or Password");
         }
       });
   };
@@ -71,7 +71,7 @@ class Login extends Component {
                   <Form size="large">
                     <Segment stacked>
                       <Form.Input
-                        fluid
+                        fluid={true}
                         icon="user"
                         iconPosition="left"
                         value={this.state.username}
@@ -80,7 +80,7 @@ class Login extends Component {
                         onChange={this.handleChange}
                       />
                       <Form.Input
-                        fluid
+                        fluid={true}
                         icon="lock"
                         value={this.state.password}
                         iconPosition="left"
@@ -92,7 +92,7 @@ class Login extends Component {
 
                       <Button
                         color="yellow"
-                        fluid
+                        fluid={true}
                         size="large"
                         onClick={this.handleSubmit}
                       >

@@ -1,17 +1,7 @@
 import React, { Component } from "react";
-import {
-  Card,
-  Image,
-  Grid,
-  Container,
-  Button,
-  Transition,
-  List,
-  Popup
-} from "semantic-ui-react";
+import { Card, Image, Grid, Container, Button, Popup } from "semantic-ui-react";
 import "../containers/App.css";
 
-const gameDatails = [];
 class GameCard extends Component {
   setTimeToTimefFrom = time => {
     const timeFrom = Date.now() - Date.parse(time);
@@ -20,32 +10,35 @@ class GameCard extends Component {
     let hours = Math.floor((timeFrom / (1000 * 60 * 60)) % 24);
     let days = Math.floor((timeFrom / (1000 * 60 * 60 * 24)) % 30);
 
-    if (hours > 24) {
+    if (days > 0) {
       return days + " day(s)";
     } else if (hours > 0) {
       return hours + " hour(s)";
+    } else if (minutes > 0) {
+      return minutes + " minute(s)";
+    } else {
+      return seconds + " seconds";
     }
-    return minutes + " minute(s)";
   };
 
   render() {
     console.log(this.props.info);
     return (
-      <Card className={this.props.info.result} fluid>
+      <Card className={this.props.info.result} fluid={true}>
         <Grid columns={4} padded>
           <Grid.Row>
             <Grid.Column>
               <Image
                 className="portrait"
-                fluid
+                fluid={true}
                 src={require(`../images/portraits/${
                   this.props.info.hero_one
                 }-select-portrait.png`)}
               />
-              <Container as="h3" textAlign="center">
+              <Container as="h3" className="cardtext" textAlign="center">
                 {this.props.info.hero_one}
               </Container>
-              <Container as="h3" textAlign="center">
+              <Container as="h3" className="cardtext" textAlign="center">
                 Primary Hero
               </Container>
             </Grid.Column>
@@ -53,33 +46,29 @@ class GameCard extends Component {
             <Grid.Column>
               <Image
                 className="portrait"
-                fluid
+                fluid={true}
                 src={require(`../images/portraits/${
                   this.props.info.hero_two
                 }-select-portrait.png`)}
               />
-              <Container
-                as="h3"
-                textAlign="center"
-                className={this.props.info.hero_two}
-              >
+              <Container as="h3" textAlign="center" className="cardtext">
                 {this.props.info.hero_two}
               </Container>
 
-              <Container as="h3" textAlign="center">
+              <Container as="h3" textAlign="center" className="cardtext">
                 Secondary Hero
               </Container>
             </Grid.Column>
             <Grid.Column width="eight">
               <Image
                 className="map"
-                fluid
+                fluid={true}
                 src={require(`../images/maps/${this.props.info.map}_map.jpg`)}
               />
-              <Container as="h3" textAlign="center">
+              <Container as="h3" textAlign="center" className="cardtext">
                 {this.props.info.map}
               </Container>
-              <Container as="h3" textAlign="center">
+              <Container as="h3" textAlign="center" className="cardtext">
                 Map
               </Container>
               <Container as="h1" textAlign="center">

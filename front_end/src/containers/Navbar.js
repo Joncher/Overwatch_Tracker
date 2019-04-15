@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Segment, Divider } from "semantic-ui-react";
+import { Menu, Divider, Grid, Button, Container } from "semantic-ui-react";
+import RankIcon from "../components/RankIcon.js";
 
 class Navbar extends Component {
-  state = { activeMenu: "home" };
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
   render() {
-    const { activeItem } = this.state;
-
     return (
       <div>
         <Menu pointing>
@@ -22,18 +17,19 @@ class Navbar extends Component {
           <Link to="/history">
             <Menu.Item name="history" />
           </Link>
+
           <Menu.Menu position="right">
             <Link to="/profile">
               <Menu.Item name={localStorage.username} />
             </Link>
-            <Divider />
-            <Link to="/login">
-              <Menu.Item
-                name="logout"
-                onClick={e => {
-                  localStorage.clear();
-                }}
-              />
+
+            <Link
+              to="/login"
+              onClick={e => {
+                localStorage.clear();
+              }}
+            >
+              <Menu.Item name="Logout" />
             </Link>
           </Menu.Menu>
         </Menu>

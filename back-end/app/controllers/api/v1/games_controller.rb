@@ -3,6 +3,7 @@ class Api::V1::GamesController < ApplicationController
   def create
     @game = Game.create(game_param)
     if @game.valid?
+      @game.user.ranking = @game.new_ranking
       render json: { game: GameSerializer.new(@game) }, status: :created
     else
       render json: { error: 'failed to create game' }, status: :not_acceptable

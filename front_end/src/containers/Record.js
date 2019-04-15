@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Button, Checkbox, Form, Dimmer, Grid } from "semantic-ui-react";
+import { Form, Grid } from "semantic-ui-react";
 import options from "../public/options.js";
+import { Link } from "react-router-dom";
 import "./App.css";
 
 class Record extends Component {
@@ -29,7 +30,8 @@ class Record extends Component {
     })
       .then(r => r.json())
       .then(r => {
-        console.log(r);
+        localStorage.ranking = r.game.new_ranking;
+        window.location.href = "http://localhost:3000/history";
       });
   };
 
@@ -39,7 +41,7 @@ class Record extends Component {
       <Grid.Column className="centered main">
         <Form>
           <Form.Select
-            fluid
+            fluid={true}
             label="Result"
             name="result"
             options={options.result}
@@ -47,14 +49,14 @@ class Record extends Component {
             placeholder=""
           />
           <Form.Input
-            fluid
+            fluid={true}
             type="number"
             label="Current Ranking"
             name="new_ranking"
             onChange={this.handleChange}
           />
           <Form.Select
-            fluid
+            fluid={true}
             label="Hero"
             name="hero_one"
             options={options.heros}
@@ -62,7 +64,7 @@ class Record extends Component {
             onChange={this.handleChange}
           />
           <Form.Select
-            fluid
+            fluid={true}
             label="Secondary Hero"
             name="hero_two"
             options={options.heros}
@@ -70,7 +72,7 @@ class Record extends Component {
             onChange={this.handleChange}
           />
           <Form.Select
-            fluid
+            fluid={true}
             label="Party Size"
             name="party_size"
             options={options.party}
@@ -78,7 +80,7 @@ class Record extends Component {
             onChange={this.handleChange}
           />
           <Form.Select
-            fluid
+            fluid={true}
             label="Map"
             name="map"
             options={options.maps}
@@ -86,11 +88,12 @@ class Record extends Component {
             onChange={this.handleChange}
           />
           <Form.Input
-            fluid
+            fluid={true}
             label="Details"
             name="details"
             onChange={this.handleChange}
           />
+
           <Form.Button content="Submit" onClick={this.handleSubmit} />
         </Form>
       </Grid.Column>

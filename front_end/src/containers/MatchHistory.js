@@ -1,33 +1,35 @@
-import React, { Component } from "react";
-import { Card, Container, Grid } from "semantic-ui-react";
-import GameCard from "../components/GameCard";
+import React, { Component, lazy, Suspense } from "react";
+import { Card, Grid, Dimmer, Loader } from "semantic-ui-react";
+import GamePlaceholder from "../components/GamePlaceholder";
+import LazyLoad from "react-lazyload";
+import Loaders from "../components/Loaders";
+const GameCard = lazy(() => import("../components/GameCard"));
 
-const arrayOfCards = [];
 class MatchHistory extends Component {
   state = {
+    placeholder: [<Loaders />],
     array: []
   };
-  componentDidMount(arrayOfCards) {
-    arrayOfCards = fetch(
-      `http://localhost:3001/api/v1/games/${localStorage.userId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${localStorage.token}`
-        }
+  componentDidMount() {
+    fetch(`http://localhost:3001/api/v1/games/${localStorage.userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`
       }
-    )
+    })
       .then(r => r.json())
       .then(r => r.map(game => <GameCard key={game.id} info={game} />))
-      .then(r => this.setState({ array: r }));
+      .then(r => this.setState({ placeholder: [], array: r.reverse() }));
   }
 
   render() {
     return (
       <Grid.Column className="gamecards main">
-        <Card.Group fluid>{this.state.array}</Card.Group>
+        <Card.Group fluid={true}>
+          <Suspense fallback={<Loaders />}>{this.state.array}</Suspense>
+        </Card.Group>
       </Grid.Column>
     );
   }

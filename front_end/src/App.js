@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { Container, Grid, Divider, Image } from "semantic-ui-react";
+import { Container, Divider } from "semantic-ui-react";
 
-import ErrorPage from "./containers/ErrorPage";
 import Navbar from "./containers/Navbar";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
@@ -13,7 +12,7 @@ import MatchHistory from "./containers/MatchHistory";
 class App extends Component {
   render() {
     return (
-      <Container fluid style={{ padding: "1em" }}>
+      <Container fluid={true} style={{ padding: "1em" }}>
         <Navbar />
         <Divider hidden />
         <Switch>
