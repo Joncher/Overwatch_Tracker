@@ -1,5 +1,125 @@
-.center {
+.back {
+  position: absolute;
+  top: -20px;
+  left: 15px;
+}
+
+.centered {
   margin: auto;
-  width: 25%;
+  width: 50%;
   padding: 10;
+}
+
+.gamecards {
+  margin: auto;
+  position: relative;
+  max-width: 60%;
+  min-width: 1000px;
+  padding: 10;
+}
+
+.show {
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  background-color: #4a4c4e !important;
+}
+
+.portrait {
+  width: 90%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border: double;
+  background-color: #4a4c4e !important;
+}
+.image {
+  margin: 0 !important;
+}
+.won {
+  background-color: lightgreen !important;
+  opacity: 0.9;
+  border-style: ridge !important;
+  box-shadow: 4px -4px grey !important;
+}
+
+.loss {
+  background-color: #ff6464 !important;
+  opacity: 0.9;
+  border-style: ridge !important;
+  box-shadow: 4px -4px grey !important;
+}
+
+.draw {
+  background-color: #ffffff !important;
+  opacity: 0.9;
+  border-style: ridge !important;
+  box-shadow: 4px -4px grey !important;
+}
+
+.leave {
+  background-color: #ffffff !important;
+  opacity: 0.9;
+  border-style: ridge !important;
+  box-shadow: 4px -4px grey !important;
+}
+
+.newsimage {
+  margin: auto;
+  max-width: 100% !important;
+  max-height: 270px !important;
+}
+
+.map {
+  max-width: 100% !important ;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border: double;
+}
+.cardtext {
+  color: white !important;
+  border: double;
+  background-color: #4a4c4e !important;
+}
+
+body {
+  background: url("../images/background/whitediamond.png");
+}
+
+.homebutton {
+  height: 16em;
+  width: 40%;
+}
+
+.main {
+  width: 40%;
+  padding: 1em;
+}
+
+.nopadding {
+  padding: 1px !important;
+}
+
+.navbar {
+  max-width: 39px !important;
+  height: 39px !important;
+}
+
+.devBorders {
+  border-style: dashed !important;
+}
+
+.right {
+  float: right;
+}
+
+.graphs {
+  position: absolute !important;
+  top: 100px !important;
+  margin: auto;
+  width: 50%;
+  padding: 10;
+}
+
+.hidden {
+  visibility: hidden;
 }

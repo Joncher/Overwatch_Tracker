@@ -9,6 +9,10 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.string :map
       t.text :details
       t.integer :user_id
+      t.string :hero_one_role
+      t.string :hero_two_role
+      t.string :map_type
+      t.timestamps
     end
   end
 end

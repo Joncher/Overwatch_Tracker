@@ -1,41 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Segment } from "semantic-ui-react";
+import { Menu, Divider, Grid, Button, Container } from "semantic-ui-react";
+import RankIcon from "../components/RankIcon.js";
 
 class Navbar extends Component {
-  state = { activeMenu: "home" };
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
   render() {
-    const { activeItem } = this.state;
-
     return (
       <div>
-        <Menu pointing secondary>
+        <Menu pointing>
           <Link to="/home">
-            <Menu.Item name="home" active={activeItem === "home"} />
-          </Link>
-          <Link to="/profile">
-            <Menu.Item name="profile" active={activeItem === "profile"} />
+            <Menu.Item name="home" />
           </Link>
           <Link to="/record">
-            <Menu.Item name="record" active={activeItem === "record"} />
+            <Menu.Item name="record" />
           </Link>
           <Link to="/history">
-            <Menu.Item name="history" active={activeItem === "history"} />
+            <Menu.Item name="history" />
           </Link>
+
           <Menu.Menu position="right">
-            <Link to="/login">
-              <Menu.Item name="login" />
+            <Link to="/profile">
+              <Menu.Item name={localStorage.username} />
             </Link>
-            <Link to="/login">
-              <Menu.Item
-                name="logout"
-                onClick={e => {
-                  localStorage.clear();
-                }}
-              />
+
+            <Link
+              to="/login"
+              onClick={e => {
+                localStorage.clear();
+              }}
+            >
+              <Menu.Item name="Logout" />
             </Link>
           </Menu.Menu>
         </Menu>
