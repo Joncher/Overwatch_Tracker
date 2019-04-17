@@ -1,11 +1,5 @@
 import React, { Component, Suspense, lazy } from "react";
-import {
-  Button,
-  Grid,
-  Container,
-  Divider,
-  Placeholder
-} from "semantic-ui-react";
+import { Grid, Container } from "semantic-ui-react";
 import ProfileInfo from "../components/ProfileInfo";
 import Loaders from "../components/Loaders";
 

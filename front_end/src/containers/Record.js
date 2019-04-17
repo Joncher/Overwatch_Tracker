@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Form, Grid } from "semantic-ui-react";
 import options from "../public/options.js";
-import { Link } from "react-router-dom";
-import "./App.css";
 
 class Record extends Component {
   state = {

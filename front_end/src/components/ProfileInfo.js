@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Card } from "semantic-ui-react";
+import { Container, Grid } from "semantic-ui-react";
 import RankIcon from "./RankIcon";
 
 function ProfileInfo() {

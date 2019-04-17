@@ -4,7 +4,6 @@ import {
   Button,
   Dimmer,
   Header,
-  Icon,
   Image,
   Segment,
   Grid,

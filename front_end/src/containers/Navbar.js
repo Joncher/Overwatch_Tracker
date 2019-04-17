@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Divider, Grid, Button, Container } from "semantic-ui-react";
-import RankIcon from "../components/RankIcon.js";
+import { Menu } from "semantic-ui-react";
 
 class Navbar extends Component {
   render() {

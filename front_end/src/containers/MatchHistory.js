@@ -1,7 +1,6 @@
 import React, { Component, lazy, Suspense } from "react";
-import { Card, Grid, Dimmer, Loader } from "semantic-ui-react";
-import GamePlaceholder from "../components/GamePlaceholder";
-import LazyLoad from "react-lazyload";
+import { Card, Grid } from "semantic-ui-react";
+
 import Loaders from "../components/Loaders";
 const GameCard = lazy(() => import("../components/GameCard"));
 
@@ -20,7 +19,7 @@ class MatchHistory extends Component {
       }
     })
       .then(r => r.json())
-      .then(r => r.filter((game, index) => index != 0))
+      .then(r => r.filter((game, index) => index !== 0))
       .then(r => r.map(game => <GameCard key={game.id} info={game} />))
       .then(r => this.setState({ placeholder: [], array: r.reverse() }));
   }

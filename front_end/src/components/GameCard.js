@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Image, Grid, Container, Button, Popup } from "semantic-ui-react";
+import { Card, Image, Grid, Container } from "semantic-ui-react";
 import "../containers/App.css";
 
 class GameCard extends Component {
