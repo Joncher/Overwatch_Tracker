@@ -1,5 +1,11 @@
 import React, { Component, Suspense, lazy } from "react";
-import { Button, Grid, Container, Divider } from "semantic-ui-react";
+import {
+  Button,
+  Grid,
+  Container,
+  Divider,
+  Placeholder
+} from "semantic-ui-react";
 import ProfileInfo from "../components/ProfileInfo";
 import Loaders from "../components/Loaders";
 
@@ -12,8 +18,8 @@ class Profile extends Component {
     roleData: [[0, 0]],
     heroData: [0, 0],
     filteredHeroData: [],
-    wonGameData: [],
-    lossGameData: []
+    mapData: [],
+    filteredMapData: []
   };
   componentDidMount() {
     fetch(`http://localhost:3001/api/v1/games/${localStorage.userId}`, {
@@ -54,7 +60,17 @@ class Profile extends Component {
             .filter(function(value, index, self) {
               return self.indexOf(value) === index;
             })
-            .sort()
+            .sort(),
+          mapData: data
+            .filter(game => game.result != null)
+            .map(game => game.map)
+            .sort(),
+          filteredMapData: data
+            .filter(game => game.result != null)
+            .map(game => game.map)
+            .filter(function(value, index, self) {
+              return self.indexOf(value) === index;
+            })
         })
       );
   }
@@ -64,7 +80,7 @@ class Profile extends Component {
     return (
       <Container className="main ">
         <ProfileInfo />
-        <Grid columns={2} className="graphs">
+        <Grid columns={1} className="graphs">
           <Grid.Row className="graphs ">
             <Grid.Column style={{ width: "100%" }}>
               <Suspense fallback={<Loaders />}>
@@ -99,6 +115,21 @@ class Profile extends Component {
                     )
                     .concat(0)}
                   labels={this.state.filteredHeroData}
+                />
+              </Suspense>
+            </Grid.Column>
+            <Grid.Column style={{ width: "100%" }}>
+              <Suspense fallback={<Loaders />}>
+                <BarGraph
+                  name="Most Played Map"
+                  data={this.state.filteredMapData
+                    .map(
+                      filteredMap =>
+                        this.state.mapData.filter(map => map === filteredMap)
+                          .length
+                    )
+                    .concat(0)}
+                  labels={this.state.filteredMapData}
                 />
               </Suspense>
             </Grid.Column>

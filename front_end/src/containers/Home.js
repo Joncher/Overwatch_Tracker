@@ -15,7 +15,7 @@ const weekAgo = moment()
 class Home extends Component {
   componentDidMount() {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q="%22overwatch"%22&language=en&from=${weekAgo}&to=${today}&pageSize=5&sortBy=relevancy&apiKey=${API_KEY}`,
+      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q="%22overwatch"%22&language=en&excludeDomains=google.com&from=${weekAgo}&to=${today}&pageSize=5&sortBy=relevancy&apiKey=${API_KEY}`,
       {
         headers: {
           "Content-Type": "application/json",
