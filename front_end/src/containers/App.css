@@ -103,3 +103,23 @@ body {
   max-width: 39px !important;
   height: 39px !important;
 }
+
+.devBorders {
+  border-style: dashed !important;
+}
+
+.right {
+  float: right;
+}
+
+.graphs {
+  position: absolute !important;
+  top: 100px !important;
+  margin: auto;
+  width: 50%;
+  padding: 10;
+}
+
+.hidden {
+  visibility: hidden;
+}

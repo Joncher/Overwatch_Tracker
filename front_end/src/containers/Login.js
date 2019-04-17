@@ -36,6 +36,7 @@ class Login extends Component {
           localStorage.token = r.jwt;
           localStorage.userId = r.user.id;
           localStorage.username = r.user.username;
+          localStorage.ranking = r.user.ranking;
           this.setState({
             username: "",
             password: ""

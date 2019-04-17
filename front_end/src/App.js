@@ -7,6 +7,7 @@ import Navbar from "./containers/Navbar";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import Home from "./containers/Home";
+import Profile from "./containers/Profile";
 import Record from "./containers/Record";
 import MatchHistory from "./containers/MatchHistory";
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/history" component={MatchHistory} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Container>
     );

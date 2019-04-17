@@ -26,7 +26,7 @@ function RankIcon(props) {
     iconLocation = grandmaster;
   }
 
-  return <Image src={iconLocation} className={props.class} />;
+  return <Image src={iconLocation} className={`${props.iconClass}`} />;
 }
 
 export default RankIcon;

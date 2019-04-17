@@ -1,15 +1,110 @@
 import React, { Component, Suspense, lazy } from "react";
 import { Button, Grid, Container, Divider } from "semantic-ui-react";
-
+import ProfileInfo from "../components/ProfileInfo";
 import Loaders from "../components/Loaders";
-const NewsArticle = lazy(() => import("../components/NewsArticle"));
 
-class Profile {
+const BarGraph = lazy(() => import("../components/BarGraph"));
+const LineGraph = lazy(() => import("../components/LineGraph"));
+
+class Profile extends Component {
+  state = {
+    rankingData: [[0, 0]],
+    roleData: [[0, 0]],
+    heroData: [0, 0],
+    filteredHeroData: [],
+    wonGameData: [],
+    lossGameData: []
+  };
+  componentDidMount() {
+    fetch(`http://localhost:3001/api/v1/games/${localStorage.userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`
+      }
+    })
+      .then(r => r.json())
+      .then(data =>
+        this.setState({
+          rankingData: data.map((game, index) => [index, game.new_ranking]),
+          roleData: [
+            data
+              .filter(game => game.result != null)
+              .map(game => game.hero_one_role)
+              .filter(role => role === "Tank").length,
+            data
+              .filter(game => game.result != null)
+              .map(game => game.hero_one_role)
+              .filter(role => role === "Damage").length,
+            data
+              .filter(game => game.result != null)
+              .map(game => game.hero_one_role)
+              .filter(role => role === "Support").length,
+            0
+          ],
+          heroData: data
+            .filter(game => game.result != null)
+            .map(game => game.hero_one)
+            .sort(),
+
+          filteredHeroData: data
+            .filter(game => game.result != null)
+            .map(game => game.hero_one)
+            .filter(function(value, index, self) {
+              return self.indexOf(value) === index;
+            })
+            .sort()
+        })
+      );
+  }
+
   render() {
+    console.log(this.state);
     return (
-      <Grid>
-        <Grid.Row>STUFFFFFF</Grid.Row>
-      </Grid>
+      <Container className="main ">
+        <ProfileInfo />
+        <Grid columns={2} className="graphs">
+          <Grid.Row className="graphs ">
+            <Grid.Column style={{ width: "100%" }}>
+              <Suspense fallback={<Loaders />}>
+                <BarGraph
+                  name="Roles Played(Primary Hero)"
+                  data={this.state.roleData}
+                  labels={["Tank", "Damage", "Support"]}
+                />
+              </Suspense>
+            </Grid.Column>
+            <Grid.Column style={{ width: "100%" }}>
+              <Suspense fallback={<Loaders />}>
+                <LineGraph
+                  name="Skill Rating"
+                  data={this.state.rankingData
+                    .map(point => point[1])
+                    .concat(1000)}
+                  labels={this.state.rankingData.map(point => point[0])}
+                />
+              </Suspense>
+            </Grid.Column>
+            <Grid.Column style={{ width: "100%" }}>
+              <Suspense fallback={<Loaders />}>
+                <BarGraph
+                  name="Most Played Champion"
+                  data={this.state.filteredHeroData
+                    .map(
+                      filteredHero =>
+                        this.state.heroData.filter(
+                          hero => hero === filteredHero
+                        ).length
+                    )
+                    .concat(0)}
+                  labels={this.state.filteredHeroData}
+                />
+              </Suspense>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
     );
   }
 }

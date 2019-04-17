@@ -9,7 +9,9 @@ class Record extends Component {
     result: "",
     new_ranking: 0,
     hero_one: "",
+    hero_one_role: "",
     hero_two: "",
+    hero_two_role: "",
     party_size: 1,
     map: "",
     details: "",
@@ -17,6 +19,15 @@ class Record extends Component {
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+  handleHeroOneChange = (e, { name, value }) =>
+    this.setState({ [name]: value[0], hero_one_role: value[1] });
+
+  handleHeroTwoChange = (e, { name, value }) =>
+    this.setState({ [name]: value[0], hero_two_role: value[1] });
+
+  handleMapChange = (e, { name, value }) =>
+    this.setState({ [name]: value[0], map_type: value[1] });
 
   handleSubmit = () => {
     fetch("http://localhost:3001/api/v1/games", {
@@ -61,15 +72,16 @@ class Record extends Component {
             name="hero_one"
             options={options.heros}
             placeholder=""
-            onChange={this.handleChange}
+            onChange={this.handleHeroOneChange}
           />
+
           <Form.Select
             fluid={true}
             label="Secondary Hero"
             name="hero_two"
             options={options.heros}
             placeholder=""
-            onChange={this.handleChange}
+            onChange={this.handleHeroTwoChange}
           />
           <Form.Select
             fluid={true}
@@ -85,7 +97,7 @@ class Record extends Component {
             name="map"
             options={options.maps}
             placeholder=""
-            onChange={this.handleChange}
+            onChange={this.handleMapChange}
           />
           <Form.Input
             fluid={true}

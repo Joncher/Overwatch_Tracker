@@ -6,6 +6,7 @@ import { Button, Grid, Container, Divider } from "semantic-ui-react";
 import Loaders from "../components/Loaders";
 const NewsArticle = lazy(() => import("../components/NewsArticle"));
 
+const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 const today = moment().format("YYYY-MM-DD ");
 const weekAgo = moment()
   .subtract(7, "days")
@@ -14,7 +15,7 @@ const weekAgo = moment()
 class Home extends Component {
   componentDidMount() {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q="%22overwatch"%22&language=en&from=${weekAgo}&to=${today}&pageSize=5&sortBy=relevancy&apiKey=ea985880356a4b5995f5e0c37af8a424`,
+      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q="%22overwatch"%22&language=en&from=${weekAgo}&to=${today}&pageSize=5&sortBy=relevancy&apiKey=${API_KEY}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -40,6 +41,7 @@ class Home extends Component {
     news: []
   };
   render() {
+    console.log(API_KEY);
     console.log(this.state.news);
     return (
       <Container className="main">

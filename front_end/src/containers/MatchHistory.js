@@ -20,6 +20,7 @@ class MatchHistory extends Component {
       }
     })
       .then(r => r.json())
+      .then(r => r.filter((game, index) => index != 0))
       .then(r => r.map(game => <GameCard key={game.id} info={game} />))
       .then(r => this.setState({ placeholder: [], array: r.reverse() }));
   }
