@@ -72,11 +72,11 @@ class Profile extends Component {
   render() {
     console.log(this.state);
     return (
-      <Container className="main ">
+      <Container className="main centered">
         <ProfileInfo />
         <Grid columns={1} className="graphs">
-          <Grid.Row className="graphs ">
-            <Grid.Column style={{ width: "100%" }}>
+          <Grid.Row className="graphs">
+            <Grid.Column>
               <Suspense fallback={<Loaders />}>
                 <BarGraph
                   name="Roles Played(Primary Hero)"
@@ -91,7 +91,7 @@ class Profile extends Component {
                   name="Skill Rating"
                   data={this.state.rankingData
                     .map(point => point[1])
-                    .concat(1000)}
+                    .concat(this.state.rankingData[0][1] - 50)}
                   labels={this.state.rankingData.map(point => point[0])}
                 />
               </Suspense>
