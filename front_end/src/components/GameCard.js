@@ -1,5 +1,14 @@
 import React, { Component } from "react";
-import { Card, Image, Grid, Container } from "semantic-ui-react";
+import {
+  Card,
+  Image,
+  Grid,
+  Container,
+  Popup,
+  Button,
+  Icon,
+  Divider
+} from "semantic-ui-react";
 import "../containers/App.css";
 
 class GameCard extends Component {
@@ -75,6 +84,24 @@ class GameCard extends Component {
                 Played {this.setTimeToTimefFrom(this.props.info.created_at)} ago
               </Container>
             </Grid.Column>
+            <Popup
+              style={{ position: "absolute", width: "500px", height: "25%" }}
+              trigger={<Button icon="add" className="show" />}
+              content={
+                <Card fluid style={{ width: "100%", height: "100%" }}>
+                  <Card.Content>
+                    <Card.Header>Details:</Card.Header>
+                    <Card.Description>
+                      {this.props.info.details}
+                    </Card.Description>
+                    <Divider />
+                  </Card.Content>
+                </Card>
+              }
+              basic
+              verticalOffset={185}
+              position="top right"
+            />
           </Grid.Row>
         </Grid>
       </Card>

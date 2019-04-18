@@ -19,7 +19,9 @@ class Navbar extends Component {
 
           <Menu.Menu position="right">
             <Link to="/profile">
-              <Menu.Item name={localStorage.username} />
+              <Menu.Item
+                name={`${localStorage.username} ${localStorage.ranking} SR `}
+              />
             </Link>
 
             <Link

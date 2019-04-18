@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Grid } from "semantic-ui-react";
 import options from "../public/options.js";
-
+import "./App.css";
 class Record extends Component {
   state = {
     result: "",
@@ -17,6 +17,12 @@ class Record extends Component {
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+  stopArrowKeyChange = e => {
+    if (e.which === 38 || e.which === 40) {
+      e.preventDefault();
+    }
+  };
 
   handleHeroOneChange = (e, { name, value }) =>
     this.setState({ [name]: value[0], hero_one_role: value[1] });
@@ -48,7 +54,7 @@ class Record extends Component {
     console.log(this.state);
     return (
       <Grid.Column className="centered main">
-        <Form>
+        <Form autocomplete="off" style={{ opacity: ".8" }}>
           <Form.Select
             fluid={true}
             label="Result"
@@ -63,6 +69,7 @@ class Record extends Component {
             label="Current Ranking"
             name="new_ranking"
             onChange={this.handleChange}
+            onKeyDown={this.stopArrowKeyChange}
           />
           <Form.Select
             fluid={true}
@@ -98,6 +105,7 @@ class Record extends Component {
             onChange={this.handleMapChange}
           />
           <Form.Input
+            autocomplete="false"
             fluid={true}
             label="Details"
             name="details"
