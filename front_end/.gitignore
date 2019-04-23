@@ -3,3 +3,4 @@
 # Ignore master key for decrypting credentials and more.
 
 /.env
+/front_end/node_modules/.cache
