@@ -84,9 +84,10 @@ class Signup extends Component {
                   >
                     <Image src={logo} /> SIGN UP FOR OVERTRACK
                   </Header>
-                  <Form size="large">
+                  <Form size="large" autocomplete="off">
                     <Segment stacked>
                       <Form.Input
+                        autocomplete="false"
                         fluid={true}
                         icon="user"
                         iconPosition="left"
